@@ -5,7 +5,7 @@ import java.util.Random;
 import org.testng.annotations.Test;
 
 import com.alg.sort.BubbleSort;
-import com.alg.sort.QuckSort;
+import com.alg.sort.QuickSort;
 import com.alg.sort.Sort;
 
 public class SortTest {
@@ -20,7 +20,7 @@ public class SortTest {
     }
     @Test
     public void testQuickSort() {
-        sort = new QuckSort();
+        sort = new QuickSort();
         doSort();
 
     }
