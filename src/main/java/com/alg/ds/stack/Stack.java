@@ -20,6 +20,16 @@ package com.alg.ds.stack;
  */
 public class Stack {
 
+    private int top = 0;
+
+    private int size;
+    private Object[] objs;
+
+    public Stack(int size) {
+        objs = new Object[size];
+        this.size = size;
+    }
+
     /**
      * 
      * 功能描述: <br>
@@ -30,7 +40,7 @@ public class Stack {
      * @since [产品/模块版本](可选)
      */
     boolean isEmpty() {
-        return false;
+        return top == 0;
     }
 
     /**
@@ -43,6 +53,11 @@ public class Stack {
      * @since [产品/模块版本](可选)
      */
     void push(Object obj) {
+        if (top < size - 1) {
+            objs[top++] = obj;
+        } else {
+            throw new RuntimeException("underflow");
+        }
     }
 
     /**
@@ -54,7 +69,15 @@ public class Stack {
      * @see [相关类/方法](可选)
      * @since [产品/模块版本](可选)
      */
-    Object pop() {
-        return null;
+    public Object pop() {
+        if (this.isEmpty()) {
+            return null;
+        } else {
+            Object obj = objs[top];
+            objs[top] = null;
+            top--;
+            return obj;
+        }
+
     }
 }
